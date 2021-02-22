@@ -15,7 +15,7 @@ let correctAnswer;
 let counter;
 
 for (counter = 1; counter <= 3; counter += 1) {
-  randomNumber = Math.floor(Math.random() * 100) + 1; //returns random number from 1 to 100
+  randomNumber = Math.floor(Math.random() * 100) + 1; // returns random number from 1 to 100
   if (randomNumber % 2 === 0) {
     correctAnswer = 'yes';
   } else {
