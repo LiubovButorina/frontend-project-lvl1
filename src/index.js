@@ -33,7 +33,7 @@ export const games = (gameQuestion, results) => {
     userAnswer = readlineSync.question('Your answer: ');
     success = checkAnswers(userAnswer, correctAnswer, userName);
     if (!success) {
-      return;
+      break;
     }
     if (maxRounds === 3) {
       console.log(`Congratulations, ${userName}!`);
