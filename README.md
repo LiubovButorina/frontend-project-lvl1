@@ -4,3 +4,4 @@
 ![Linter](https://github.com/LiubovButorina/frontend-project-lvl1/workflows/Linter/badge.svg)
 <p>Демонстрационная игра "Проверка на четность": https://asciinema.org/a/0D6bWzBj64laqDcHifaKRHX2H </p>
 <p>Демонстрационная игра "Калькулятор": https://asciinema.org/a/395946 </p>
+<p>Демонстрационная игра "НОД": https://asciinema.org/a/398555 </p>
