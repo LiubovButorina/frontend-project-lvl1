@@ -7,7 +7,7 @@ export const greeting = () => {
   return userName;
 };
 
-// random number from 1 to 100
+// generate random number from 1 to 100
 export const getRandomValue = () => Math.floor(Math.random() * 100) + 1;
 
 const checkAnswers = (userAnswer, correctAnswer, userName) => {
