@@ -7,8 +7,8 @@ export const greeting = () => {
   return userName;
 };
 
-// generate random number from 1 to 100
-export const getRandomValue = () => Math.floor(Math.random() * 100) + 1;
+// generate random number from 1 to 50
+export const getRandomValue = () => Math.floor(Math.random() * 50) + 1;
 
 const checkAnswers = (userAnswer, correctAnswer, userName) => {
   if (userAnswer === String(correctAnswer)) {
