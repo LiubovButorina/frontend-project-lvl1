@@ -1,4 +1,8 @@
 import readlineSync from 'readline-sync';
+import isEven from './games/isEven.js';
+import calc from './games/calc.js';
+import gcd from './games/gcd.js';
+import progression from './games/progression.js';
 
 export const greeting = () => {
   console.log('Welcome to the Brain Games!');
@@ -7,8 +11,26 @@ export const greeting = () => {
   return userName;
 };
 
-// generate random number from 1 to 50
-export const getRandomValue = () => Math.floor(Math.random() * 50) + 1;
+const getGameExpressionCorrectAnswer = (gameName) => {
+  let [expression, correctAnswer] = [];
+  switch (gameName) {
+    case 'isEven':
+      [expression, correctAnswer] = isEven();
+      break;
+    case 'calc':
+      [expression, correctAnswer] = calc();
+      break;
+    case 'gcd':
+      [expression, correctAnswer] = gcd();
+      break;
+    case 'progression':
+      [expression, correctAnswer] = progression();
+      break;
+    default:
+      break;
+  }
+  return [expression, correctAnswer];
+};
 
 const checkAnswers = (userAnswer, correctAnswer, userName) => {
   if (userAnswer === String(correctAnswer)) {
@@ -20,25 +42,28 @@ const checkAnswers = (userAnswer, correctAnswer, userName) => {
   return false;
 };
 
-export const games = (gameQuestion, results) => {
+const games = (gameName, gameQuestion) => {
   let userAnswer;
+  let expression;
+  let correctAnswer;
+  const maxRounds = 3;
   let success;
-  let maxRounds = 1;
+
   const userName = greeting();
   console.log(gameQuestion);
 
-  // eslint-disable-next-line no-restricted-syntax
-  for (const [expression, correctAnswer] of results) {
+  for (let counter = 1; counter <= maxRounds; counter += 1) {
+    [expression, correctAnswer] = getGameExpressionCorrectAnswer(gameName);
     console.log(`Question: ${expression}`);
     userAnswer = readlineSync.question('Your answer: ');
     success = checkAnswers(userAnswer, correctAnswer, userName);
     if (!success) {
       break;
     }
-    if (maxRounds === 3) {
+    if (counter === maxRounds) {
       console.log(`Congratulations, ${userName}!`);
-    } else {
-      maxRounds += 1;
     }
   }
 };
+
+export default games;

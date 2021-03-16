@@ -1,4 +1,7 @@
 #!/usr/bin/env node
-import isEven from '../src/games/isEven.js';
+import games from '../src/index.js';
 
-isEven();
+const gameName = 'isEven';
+const gameQuestion = 'Answer "yes" if the number is even, otherwise answer "no".';
+
+games(gameName, gameQuestion);

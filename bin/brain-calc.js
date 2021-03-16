@@ -1,4 +1,7 @@
 #!/usr/bin/env node
-import calc from '../src/games/calc.js';
+import games from '../src/index.js';
 
-calc();
+const gameName = 'calc';
+const gameQuestion = 'What is the result of the expression?';
+
+games(gameName, gameQuestion);

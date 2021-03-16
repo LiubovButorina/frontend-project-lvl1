@@ -1,4 +1,7 @@
 #!/usr/bin/env node
-import progression from '../src/games/progression.js';
+import games from '../src/index.js';
 
-progression();
+const gameName = 'progression';
+const gameQuestion = 'What number is missing in the progression?';
+
+games(gameName, gameQuestion);

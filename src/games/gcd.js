@@ -1,8 +1,6 @@
-import { getRandomValue, games } from '../index.js';
-
 const getExpression = () => {
-  const value1 = getRandomValue();
-  let value2 = getRandomValue();
+  const value1 = Math.floor(Math.random() * 50) + 1;
+  let value2 = Math.floor(Math.random() * 50) + 1;
   if ((value1 % 2 === 0 && value2 % 2 !== 0) || (value1 % 2 !== 0 && value2 % 2 === 0)) {
     value2 += 1;
   }
@@ -24,20 +22,9 @@ const getCorrectAnswer = (value1, value2) => {
 };
 
 const gcd = () => {
-  let value1;
-  let value2;
-  let expression;
-  let correctAnswer;
-  const rounds = 3;
-  const gameQuestion = 'Find the greatest common divisor of given numbers.';
-  const results = [];
-
-  for (let counter = 1; counter <= rounds; counter += 1) {
-    [value1, value2, expression] = getExpression();
-    correctAnswer = getCorrectAnswer(value1, value2);
-    results.push([expression, correctAnswer]);
-  }
-  games(gameQuestion, results);
+  const [value1, value2, expression] = getExpression();
+  const correctAnswer = getCorrectAnswer(value1, value2);
+  return [expression, correctAnswer];
 };
 
 export default gcd;

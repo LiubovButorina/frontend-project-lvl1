@@ -1,8 +1,6 @@
-import { getRandomValue, games } from '../index.js';
-
 const getExpression = () => {
   const arr = [];
-  const firstNumber = getRandomValue();
+  const firstNumber = Math.floor(Math.random() * 50) + 1;
   const difference = Math.floor(Math.random() * 10) + 1;
   const progressionLength = 10;
   let tmp = firstNumber;
@@ -26,19 +24,9 @@ const getExpression = () => {
 };
 
 const progression = () => {
-  let missingNumber;
-  let expression;
-  let correctAnswer;
-  const rounds = 3;
-  const gameQuestion = 'What number is missing in the progression?';
-  const results = [];
-
-  for (let counter = 1; counter <= rounds; counter += 1) {
-    [missingNumber, expression] = getExpression();
-    correctAnswer = missingNumber;
-    results.push([expression, correctAnswer]);
-  }
-  games(gameQuestion, results);
+  const [missingNumber, expression] = getExpression();
+  const correctAnswer = missingNumber;
+  return [expression, correctAnswer];
 };
 
 export default progression;
