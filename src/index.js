@@ -3,6 +3,7 @@ import isEven from './games/isEven.js';
 import calc from './games/calc.js';
 import gcd from './games/gcd.js';
 import progression from './games/progression.js';
+import isPrime from './games/isPrime.js';
 
 export const greeting = () => {
   console.log('Welcome to the Brain Games!');
@@ -25,6 +26,9 @@ const getGameExpressionCorrectAnswer = (gameName) => {
       break;
     case 'progression':
       [expression, correctAnswer] = progression();
+      break;
+    case 'prime':
+      [expression, correctAnswer] = isPrime();
       break;
     default:
       break;
