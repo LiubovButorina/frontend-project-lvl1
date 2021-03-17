@@ -21,10 +21,10 @@ const getCorrectAnswer = (value1, value2) => {
   return a + b;
 };
 
-const gcd = () => {
+const getGcd = () => {
   const [value1, value2, expression] = getExpression();
   const correctAnswer = getCorrectAnswer(value1, value2);
   return [expression, correctAnswer];
 };
 
-export default gcd;
+export default getGcd;

@@ -11,10 +11,10 @@ const getCorrectAnswer = (value) => {
   return 'no';
 };
 
-const isEven = () => {
+const isEvenNumber = () => {
   const [value, expression] = getExpression();
   const correctAnswer = getCorrectAnswer(value);
   return [expression, correctAnswer];
 };
 
-export default isEven;
+export default isEvenNumber;

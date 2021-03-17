@@ -16,10 +16,10 @@ const getCorrectAnswer = (value) => {
   return 'yes';
 };
 
-const isPrime = () => {
+const isPrimeNumber = () => {
   const [value, expression] = getExpression();
   const correctAnswer = getCorrectAnswer(value);
   return [expression, correctAnswer];
 };
 
-export default isPrime;
+export default isPrimeNumber;

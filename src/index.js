@@ -1,9 +1,9 @@
 import readlineSync from 'readline-sync';
-import isEven from './games/isEven.js';
+import isEvenNumber from './games/isEven.js';
 import calc from './games/calc.js';
-import gcd from './games/gcd.js';
-import progression from './games/progression.js';
-import isPrime from './games/isPrime.js';
+import getGcd from './games/gcd.js';
+import getProgressionElement from './games/progression.js';
+import isPrimeNumber from './games/isPrime.js';
 
 export const greeting = () => {
   console.log('Welcome to the Brain Games!');
@@ -15,20 +15,20 @@ export const greeting = () => {
 const getGameExpressionCorrectAnswer = (gameName) => {
   let [expression, correctAnswer] = [];
   switch (gameName) {
-    case 'isEven':
-      [expression, correctAnswer] = isEven();
+    case 'even':
+      [expression, correctAnswer] = isEvenNumber();
       break;
     case 'calc':
       [expression, correctAnswer] = calc();
       break;
     case 'gcd':
-      [expression, correctAnswer] = gcd();
+      [expression, correctAnswer] = getGcd();
       break;
     case 'progression':
-      [expression, correctAnswer] = progression();
+      [expression, correctAnswer] = getProgressionElement();
       break;
     case 'prime':
-      [expression, correctAnswer] = isPrime();
+      [expression, correctAnswer] = isPrimeNumber();
       break;
     default:
       break;
@@ -36,7 +36,7 @@ const getGameExpressionCorrectAnswer = (gameName) => {
   return [expression, correctAnswer];
 };
 
-const checkAnswers = (userAnswer, correctAnswer, userName) => {
+const isAnswersMatch = (userAnswer, correctAnswer, userName) => {
   if (userAnswer === String(correctAnswer)) {
     console.log('Correct!');
     return true;
@@ -46,28 +46,28 @@ const checkAnswers = (userAnswer, correctAnswer, userName) => {
   return false;
 };
 
-const games = (gameName, gameQuestion) => {
-  let userAnswer;
+const playBrainGames = (gameName, gameQuestion) => {
   let expression;
+  let userAnswer;
   let correctAnswer;
   const maxRounds = 3;
-  let success;
+  let answersMatch;
 
   const userName = greeting();
   console.log(gameQuestion);
 
-  for (let counter = 1; counter <= maxRounds; counter += 1) {
+  for (let i = 1; i <= maxRounds; i += 1) {
     [expression, correctAnswer] = getGameExpressionCorrectAnswer(gameName);
     console.log(`Question: ${expression}`);
     userAnswer = readlineSync.question('Your answer: ');
-    success = checkAnswers(userAnswer, correctAnswer, userName);
-    if (!success) {
+    answersMatch = isAnswersMatch(userAnswer, correctAnswer, userName);
+    if (!answersMatch) {
       break;
     }
-    if (counter === maxRounds) {
+    if (i === maxRounds) {
       console.log(`Congratulations, ${userName}!`);
     }
   }
 };
 
-export default games;
+export default playBrainGames;

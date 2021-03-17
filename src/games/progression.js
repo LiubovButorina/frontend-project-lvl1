@@ -1,32 +1,33 @@
 const getExpression = () => {
-  const arr = [];
-  const firstNumber = Math.floor(Math.random() * 50) + 1;
+  const progresElements = [];
+  const firstElement = Math.floor(Math.random() * 50) + 1;
   const difference = Math.floor(Math.random() * 10) + 1;
   const progressionLength = 10;
-  let tmp = firstNumber;
+  let tmp = firstElement;
   let expression = '';
 
-  arr.push(tmp);
-  for (let i = 1; i < progressionLength; i += 1) {
+  // progresElements.push(tmp);
+  for (let i = 0; i < progressionLength; i += 1) {
+    progresElements.push(tmp);
     tmp += difference;
-    arr.push(tmp);
+    // arr.push(tmp);
   }
-  const missingNumber = arr[Math.floor(Math.random() * arr.length)];
+  const missingElement = progresElements[Math.floor(Math.random() * progresElements.length)];
   // eslint-disable-next-line no-restricted-syntax
-  for (const element of arr) {
-    if (element === missingNumber) {
+  for (const element of progresElements) {
+    if (element === missingElement) {
       expression += '.. ';
     } else {
       expression += `${element} `;
     }
   }
-  return [missingNumber, expression];
+  return [missingElement, expression];
 };
 
-const progression = () => {
-  const [missingNumber, expression] = getExpression();
-  const correctAnswer = missingNumber;
+const getProgressionElement = () => {
+  const [missingElement, expression] = getExpression();
+  const correctAnswer = missingElement;
   return [expression, correctAnswer];
 };
 
-export default progression;
+export default getProgressionElement;
